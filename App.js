@@ -16,15 +16,15 @@ export default function App() {
     console.log(data)
   }
   const dele = deletes=> {
-    let kaka=data.filter((el)=>{console.log(el,'jjilani'); return el.key!=deletes})
-    setdata( kaka
+    setdata( data=>{ return  data.filter((el)=>el.key!=deletes)}
     )
+
   }
   return (
     
     <View style={styles.screen}>
       <ItemView aka={aka} itemComp={GoalCoursefill} />
-      <FlatList  style={styles.output,{marginVertical :10}} data={data} renderItem={itemdata=><Itemdat onDelete={dele(this,itemdata.item.key)}  jilani={itemdata.item.inputGoal}/>} />
+      <FlatList  style={styles.output,{marginVertical :10}} data={data} renderItem={itemdata=><Itemdat onDelete={dele} id={itemdata.item.key} jilani={itemdata.item.inputGoal}/>} />
     </View>
   );
 }
